@@ -1,15 +1,13 @@
 .app-header {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  .logo-wrapper{
-    img {
-      padding: 5px;
-      width: 50px;
-      background: inherit;
-      margin: 5px;
-    }
+  padding: 5px;
+  .logo-wrapper {
     span {
       font-weight: 700;
       font-family: monospace;
+    }
+    .icon {
+      font-size: 30px;
     }
   }
 }

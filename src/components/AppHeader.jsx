@@ -6,7 +6,7 @@ export function AppHeader() {
       <Link to="/">
         <div className="flex align-center logo-wrapper">
         <span>Live</span>
-        <span>🧑🏻‍💻</span>
+        <span className="icon">🧑🏻‍💻</span>
         <span>Mentor</span>
         </div>
       </Link>
