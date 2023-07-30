@@ -56,15 +56,6 @@ export function CodeblockDetails() {
   // Connect to the Socket.IO server
   const socket = io("http://localhost:3030");
 
-  // const handleCodeChange = (event) => {
-  //   setCode(event.target.value);
-  //   // Emit a 'code change' event
-  //   socket.emit("code change", {
-  //     code: event.target.value,
-  //     codeblockId: params.id,
-  //   });
-  // };
-
   async function loadNextCodeblockId() {
     try {
       const nextId = await codeblockService.getNextCodeblockId(params.id);
