@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
-import LMlogo from "../assets/imgs/LMlogo.png";
 
 export function AppHeader() {
   return (
     <header className="app-header flex align-center justify-center">
       <Link to="/">
-        <img src={LMlogo} alt="LiveMentor Logo" />
+        <div className="flex align-center logo-wrapper">
+        <span>Live</span>
+        <img src="https://i.pinimg.com/originals/d5/8f/47/d58f477d09240220754bd51b51c7b6d2.png" alt="LiveMentor Logo" />
+        <span>Mentor</span>
+        </div>
       </Link>
     </header>
   );
