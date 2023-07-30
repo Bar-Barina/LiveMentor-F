@@ -54,11 +54,9 @@ export function CodeblockDetails() {
   }
 
   const socketServerURL =
-  process.env.NODE_ENV === "production"
-    ? process.env.REACT_APP_SOCKET_SERVER_URL // Uses the production URL from .env
-    : "http://localhost:3030";
-
-
+    process.env.NODE_ENV === "production"
+      ? process.env.REACT_APP_SOCKET_SERVER_URL // Uses the production URL from .env
+      : "http://localhost:3030";
 
   // Connect to the Socket.IO server
   const socket = io(socketServerURL);
