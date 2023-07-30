@@ -1,0 +1,16 @@
+.codeblock-list {
+  min-width: 300px;
+  .list-title {
+    background-color: $clr1;
+    font-size: 12px;
+    padding: 10px 15px;
+    font-weight: 500;
+  }
+  border: 1px solid $clr2;
+  border-radius: 10px;
+  margin: 0 8rem;
+  @include for-tablet-layout {
+    max-width: $mobile-breakpoint;
+    margin: 0 2rem;
+  }
+}

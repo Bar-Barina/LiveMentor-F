@@ -1,0 +1,23 @@
+.codeblock-preview {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  padding: 15px;
+  font-size: 14px;
+  border-bottom: 1px solid $clr2;
+  min-width: 300px;
+  &:hover {
+    background-color: $clr3;
+  }
+  .codeblock-index-title {
+    gap: 15px;
+    .title {
+      font-weight: 500;
+    }
+    .codeblock-index {
+      @include for-tablet-layout {
+        display: none;
+      }
+    }
+  }
+}
