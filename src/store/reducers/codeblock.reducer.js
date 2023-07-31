@@ -6,6 +6,7 @@ export const SET_FILTER_BY = "SET_FILTER_BY";
 
 const INITIAL_STATE = {
   codeblocks: null,
+  // IN PROGRESS
   filterBy: {
       title: "",
       difficulty: "",
@@ -19,11 +20,13 @@ export function codeblockReducer(state = INITIAL_STATE, action = {}) {
         ...state,
         codeblocks: action.codeblocks,
       };
+      // IN PROGRESS
     case ADD_CODEBLOCK:
       return {
         ...state,
         codeblocks: [...state.codeblocks, action.codeblock],
       };
+      // IN PROGRESS
     case REMOVE_CODEBLOCK:
       return {
         ...state,
@@ -38,6 +41,7 @@ export function codeblockReducer(state = INITIAL_STATE, action = {}) {
           codeblock._id === action.codeblock._id ? action.codeblock : codeblock
         ),
       };
+      // IN PROGRESS
     case SET_FILTER_BY:
       return {
         ...state,

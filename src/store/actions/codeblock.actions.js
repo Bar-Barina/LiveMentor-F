@@ -17,6 +17,7 @@ export function loadCodeblocks() {
   };
 }
 
+// IN PROGRESS
 export function remove(codeblockId) {
   return async (dispatch) => {
     try {
@@ -40,15 +41,17 @@ export function save(codeblock) {
       const newCodeblock = await codeblockService.save(codeblock);
       const action = { type, codeblock: newCodeblock };
       dispatch(action);
+      // IN PROGRESS
       // showSuccessMsg(`codeblock ${type}ed successfully`);
-      // return "Removed!";
     } catch (error) {
+      // IN PROGRESS
       // showErrorMsg(`Something went wrong`);
       console.log("error:", error);
     }
   };
 }
 
+// IN PROGRESS
 export function setFilterBy(filterBy) {
   return (dispatch) => {
     dispatch({ type: SET_FILTER_BY, filterBy });

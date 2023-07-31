@@ -21,6 +21,7 @@ async function getById(id) {
   return Promise.resolve({ ...codeblock });
 }
 
+// IN PROGRESS
 function remove(codeblockId) {
   return httpService.remove(`codeblock/${codeblockId}`);
 }
@@ -30,6 +31,7 @@ function _update(codeblock) {
   return httpService.put(`codeblock/${codeblock._id}`, codeblock);
 }
 
+// IN PROGRESS
 function _add(codeblock) {
   return httpService.post(`codeblock/`, codeblock);
 }

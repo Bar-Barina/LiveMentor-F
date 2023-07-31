@@ -90,14 +90,21 @@ export function CodeblockDetails() {
       <section className="codeblock-details-wrapper">
         <section className="codeblock-main-details">
           {/* Rendering a mentor/student indicator */}
-          {role === "mentor" && (
-            <span className="mentor-mode">Mentor Mode</span>
-          )}
-          {role === "mentor" && (
-            <div className="mentor-actions">
-              <Link to={`/edit/${codeblock._id}`}>Edit</Link>
-            </div>
-          )}
+          {/* ONLY THE MENTOR can edit the code details, ONLY THE STUDENT can try to solve the code */}
+          <div className="mentor-wrapper flex align-center">
+            {role === "mentor" && (
+              <span className="mentor-mode">Mentor Mode</span>
+            )}
+            {role === "mentor" && (
+              <Link to={`/edit/${codeblock._id}`}>
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: getLiveMentorSvg("editIcon"),
+                  }}
+                ></span>
+              </Link>
+            )}
+          </div>
           {role !== "mentor" && (
             <span className="student-mode">Student Mode</span>
           )}

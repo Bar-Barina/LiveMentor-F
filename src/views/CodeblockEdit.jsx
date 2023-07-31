@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import { useForm } from "../customHooks/useForm";
 import { codeblockService } from "../services/codeblock.service";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { save } from "../store/actions/codeblock.actions";
 
 export function CodeblockEdit() {
-  //   const user = useSelector((storeState) => storeState.userModule.loggedInUser);
   const [codeblock, handleChange, setCodeblock] = useForm(
     codeblockService.getEmptyCodeblock()
   );
@@ -16,7 +15,6 @@ export function CodeblockEdit() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    //   if (!user || !user.isAdmin) navigate("/");
     loadCodeblock();
   }, []);
 
@@ -35,7 +33,6 @@ export function CodeblockEdit() {
   async function onSaveCodeblock(ev) {
     ev.preventDefault();
     try {
-      // codeblock.createdAt = Date.now();
       console.log("from edit", codeblock);
       dispatch(save(codeblock));
       navigate(-1);
@@ -44,13 +41,13 @@ export function CodeblockEdit() {
     }
   }
 
-  //   if (!user || !user.isAdmin) return;
   const { title, difficulty, code, solution, explanation } = codeblock;
   return (
     <section className="codeblock-edit">
       <div className="form-wrapper">
         <div className="edit-title">
-          <h1>{codeblock._id ? "Edit" : "Add"} Codeblock</h1>
+          <h3>Mentor only</h3>
+          <h1>{codeblock._id ? "Edit" : "Add"} code block</h1>
         </div>
         <form onSubmit={onSaveCodeblock}>
           <label htmlFor="title">Title</label>
@@ -62,20 +59,25 @@ export function CodeblockEdit() {
             id="title"
           />
           <label htmlFor="difficulty">Difficulty</label>
-          <input
+          <select
             value={difficulty}
             onChange={handleChange}
-            type="text"
             name="difficulty"
             id="difficulty"
-          />
-          <label htmlFor="code">Code</label>
+          >
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+          </select>
+
+          <label htmlFor="explanation">Explanation</label>
           <input
-            value={code}
+            value={explanation}
             onChange={handleChange}
             type="text"
-            name="code"
-            id="code"
+            name="explanation"
+            id="explanation"
+            className="explanation"
           />
           <label htmlFor="solution">Solution</label>
           <input
@@ -84,19 +86,25 @@ export function CodeblockEdit() {
             type="text"
             name="solution"
             id="solution"
+            className="solution"
           />
-          <label htmlFor="explanation">Explanation</label>
+          <div></div>
+          <label htmlFor="code">Code</label>
           <input
-            value={explanation}
+            value={code}
             onChange={handleChange}
             type="text"
-            name="explanation"
-            id="explanation"
+            name="code"
+            id="code"
           />
-          <button>Save</button>
+          <div className="btns-wrapper flex">
+            <button className="back" onClick={() => navigate(-1)}>
+              Back
+            </button>
+            <button className="save">Save</button>
+          </div>
         </form>
       </div>
-      <button onClick={() => navigate(-1)}>Back</button>
     </section>
   );
 }

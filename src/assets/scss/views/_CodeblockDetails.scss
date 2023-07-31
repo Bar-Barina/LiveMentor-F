@@ -110,17 +110,32 @@
   }
 }
 
-.mentor-mode {
-  text-align: center;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  width: fit-content;
-  padding: 10px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $clr14;
-  color: white;
+.mentor-wrapper {
+  gap: 20px;
+  .mentor-mode {
+    text-align: center;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $clr14;
+    color: white;
+  }
+  a {
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border: 1px solid lightgray;
+    svg {
+      fill: rgb(30, 30, 30);
+    }
+    &:hover {
+      box-shadow: rgba(226, 197, 68, 0.43) 0px 15px 35px;
+    }
+  }
 }
 .student-mode {
   text-align: center;
