@@ -9,9 +9,9 @@ function _CodeblockList({ codeblocks, onRemoveCodeblock }) {
         <CodeblockPreview
           key={codeblock._id}
           codeblock={codeblock}
+          index={index + 1}
           onRemoveCodeblock={onRemoveCodeblock}
           // Passing the index to display it in the codeblock preview
-          index={index + 1}
         />
       ))}
     </section>

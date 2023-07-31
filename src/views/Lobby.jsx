@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CodeblockList } from "../components/CodeblockList";
-import { loadCodeblocks } from "../store/actions/codeblock.actions";
+import { loadCodeblocks, remove } from "../store/actions/codeblock.actions";
 import { Loader } from '../components/Loader'
 
 export function Lobby(props) {
@@ -15,12 +15,17 @@ export function Lobby(props) {
     dispatch(loadCodeblocks());
   }, []);
 
+  function onRemoveCodeblock(productId) {
+    dispatch(remove(productId))
+    dispatch(loadCodeblocks())
+}
+
   if (!codeblocks) return  <Loader />
 
   return (
     <section className="codeblock-index">
       <h1 className="lobby-title">Choose code block</h1>
-      <CodeblockList codeblocks={codeblocks} />
+      <CodeblockList codeblocks={codeblocks} onRemoveCodeblock={onRemoveCodeblock} />
     </section>
   );
 }
