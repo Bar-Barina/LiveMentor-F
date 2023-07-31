@@ -1,4 +1,8 @@
 export const SET_CODEBLOCKS = "SET_CODEBLOCKS";
+export const ADD_CODEBLOCK = "ADD_CODEBLOCK";
+export const REMOVE_CODEBLOCK = "REMOVE_CODEBLOCK";
+export const UPDATE_CODEBLOCK = "UPDATE_CODEBLOCK";
+export const SET_FILTER_BY = "SET_FILTER_BY";
 
 const INITIAL_STATE = {
   codeblocks: null,
@@ -10,6 +14,30 @@ export function codeblockReducer(state = INITIAL_STATE, action = {}) {
       return {
         ...state,
         codeblocks: action.codeblocks,
+      };
+    case ADD_CODEBLOCK:
+      return {
+        ...state,
+        codeblocks: [...state.codeblocks, action.codeblock],
+      };
+    case REMOVE_CODEBLOCK:
+      return {
+        ...state,
+        codeblocks: state.codeblocks.filter(
+          (codeblock) => codeblock._id !== action.codeblockId
+        ),
+      };
+    case UPDATE_CODEBLOCK:
+      return {
+        ...state,
+        codeblocks: state.codeblocks.map((codeblock) =>
+          codeblock._id === action.codeblock._id ? action.codeblock : codeblock
+        ),
+      };
+    case SET_FILTER_BY:
+      return {
+        ...state,
+        filterBy: { ...action.filterBy },
       };
     default:
       return state;
