@@ -11,6 +11,15 @@ export const httpService = {
   get(endpoint, data) {
     return ajax(endpoint, "GET", data);
   },
+  post(endpoint, data) {
+    return ajax(endpoint, "POST", data);
+  },
+  put(endpoint, data) {
+    return ajax(endpoint, "PUT", data);
+  },
+  remove(endpoint, data) {
+    return ajax(endpoint, "REMOVE", data);
+  },
 };
 
 async function ajax(endpoint, method = "GET", data = null) {

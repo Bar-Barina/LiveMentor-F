@@ -3,8 +3,11 @@ import { httpService } from "./http.service.js";
 export const codeblockService = {
   query,
   getById,
+  remove,
+  save,
+  getEmptyCodeblock,
   getNextCodeblockId,
-  getDifficultyColor
+  getDifficultyColor,
 };
 
 async function query() {
@@ -16,6 +19,26 @@ async function getById(id) {
   const codeblocks = await query();
   const codeblock = codeblocks.find((codeblock) => codeblock._id === id);
   return Promise.resolve({ ...codeblock });
+}
+
+function remove(codeblockId) {
+  return httpService.remove(`codeblock/${codeblockId}`);
+}
+
+function _update(codeblock) {
+  return httpService.put(`codeblock/${codeblock._id}`, codeblock);
+}
+
+function _add(codeblock) {
+  return httpService.post(`codeblock/`, codeblock);
+}
+
+function save(codeblock) {
+  return codeblock._id ? _update(codeblock) : _add(codeblock);
+}
+
+function getEmptyCodeblock() {
+  return {};
 }
 
 async function getNextCodeblockId(id) {
@@ -32,5 +55,5 @@ export function getDifficultyColor(difficulty) {
   if (difficulty === "Easy") return "#15bd66";
   if (difficulty === "Medium") return "#ffb800";
   if (difficulty === "Hard") return "#ff334b";
-  return "#000000"; 
+  return "#000000";
 }
