@@ -18,7 +18,7 @@ export function Lobby(props) {
 
   return (
     <section className="codeblock-index">
-      <h1 className="lobby-title">Choose Code Block</h1>
+      <h1 className="lobby-title">Choose code block</h1>
       <CodeblockList codeblocks={codeblocks} />
     </section>
   );
