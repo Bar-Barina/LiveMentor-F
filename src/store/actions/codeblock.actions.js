@@ -33,6 +33,7 @@ export function remove(codeblockId) {
 }
 
 export function save(codeblock) {
+  console.log('from actions',codeblock)
   return async (dispatch) => {
     try {
       const type = codeblock._id ? UPDATE_CODEBLOCK : ADD_CODEBLOCK;
@@ -40,7 +41,7 @@ export function save(codeblock) {
       const action = { type, codeblock: newCodeblock };
       dispatch(action);
       // showSuccessMsg(`codeblock ${type}ed successfully`);
-      return "Removed!";
+      // return "Removed!";
     } catch (error) {
       // showErrorMsg(`Something went wrong`);
       console.log("error:", error);

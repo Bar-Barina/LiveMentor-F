@@ -26,6 +26,7 @@ function remove(codeblockId) {
 }
 
 function _update(codeblock) {
+  console.log('from service',codeblock)
   return httpService.put(`codeblock/${codeblock._id}`, codeblock);
 }
 
@@ -34,6 +35,7 @@ function _add(codeblock) {
 }
 
 function save(codeblock) {
+  console.log('from service',codeblock)
   return codeblock._id ? _update(codeblock) : _add(codeblock);
 }
 

@@ -24,7 +24,7 @@ export function CodeblockEdit() {
     const codeblockId = params.id;
     if (codeblockId) {
       try {
-        const codeblock = await codeblockService.getCodeblockById(codeblockId);
+        const codeblock = await codeblockService.getById(codeblockId);
         setCodeblock(codeblock);
       } catch (err) {
         console.log("load codeblock", err);
@@ -35,7 +35,8 @@ export function CodeblockEdit() {
   async function onSaveCodeblock(ev) {
     ev.preventDefault();
     try {
-      codeblock.createdAt = Date.now();
+      // codeblock.createdAt = Date.now();
+      console.log("from edit", codeblock);
       dispatch(save(codeblock));
       navigate(-1);
     } catch (error) {
@@ -92,7 +93,7 @@ export function CodeblockEdit() {
             name="explanation"
             id="explanation"
           />
-          <button>{codeblock._id ? "Edit" : "Add"} Codeblock</button>
+          <button>Save</button>
         </form>
       </div>
       <button onClick={() => navigate(-1)}>Back</button>
