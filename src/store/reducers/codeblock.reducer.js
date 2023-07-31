@@ -6,7 +6,10 @@ export const SET_FILTER_BY = "SET_FILTER_BY";
 
 const INITIAL_STATE = {
   codeblocks: null,
-  filterBy: {},
+  filterBy: {
+      title: "",
+      difficulty: "",
+  },
 };
 
 export function codeblockReducer(state = INITIAL_STATE, action = {}) {

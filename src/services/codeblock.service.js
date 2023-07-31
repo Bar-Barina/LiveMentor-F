@@ -10,8 +10,8 @@ export const codeblockService = {
   getDifficultyColor,
 };
 
-async function query() {
-  const codeblocks = await httpService.get(`codeblock`);
+async function query(filterBy = null) {
+  const codeblocks = await httpService.get(`codeblock/`,filterBy);
   return codeblocks;
 }
 
@@ -38,7 +38,13 @@ function save(codeblock) {
 }
 
 function getEmptyCodeblock() {
-  return {};
+  return {
+    title: "",
+    difficulty: "",
+    code:"",
+    solution: "",
+    explanation: ""
+  };
 }
 
 async function getNextCodeblockId(id) {

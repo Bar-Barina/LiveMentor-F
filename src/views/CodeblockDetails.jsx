@@ -81,7 +81,7 @@ export function CodeblockDetails() {
     else if (runClicked && code !== codeblock.solution) setShowSmiley(false);
   }
 
-  if (!codeblock) return <Loader />
+  if (!codeblock) return <Loader />;
 
   const difficultyColor = getDifficultyColor(codeblock.difficulty);
 
@@ -92,6 +92,11 @@ export function CodeblockDetails() {
           {/* Rendering a mentor/student indicator */}
           {role === "mentor" && (
             <span className="mentor-mode">Mentor Mode</span>
+          )}
+          {role === "mentor" && (
+            <div className="mentor-actions">
+              <Link to={`/edit/${codeblock._id}`}>Edit</Link>
+            </div>
           )}
           {role !== "mentor" && (
             <span className="student-mode">Student Mode</span>
