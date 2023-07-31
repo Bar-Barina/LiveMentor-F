@@ -2,12 +2,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CodeblockList } from "../components/CodeblockList";
 import { loadCodeblocks, remove } from "../store/actions/codeblock.actions";
-import { Loader } from '../components/Loader'
+import { Loader } from "../components/Loader";
 
 export function Lobby(props) {
-  const codeblocks = useSelector(
-    (storeState) => storeState.codeblocks
-  );
+  const codeblocks = useSelector((storeState) => storeState.codeblocks);
 
   const dispatch = useDispatch();
 
@@ -16,16 +14,20 @@ export function Lobby(props) {
   }, []);
 
   function onRemoveCodeblock(productId) {
-    dispatch(remove(productId))
-    dispatch(loadCodeblocks())
-}
+    dispatch(remove(productId));
+    dispatch(loadCodeblocks());
+  }
 
-  if (!codeblocks) return  <Loader />
+  if (!codeblocks) return <Loader />;
 
   return (
     <section className="codeblock-index">
       <h1 className="lobby-title">Choose code block</h1>
-      <CodeblockList codeblocks={codeblocks} onRemoveCodeblock={onRemoveCodeblock} />
+      <CodeblockList
+        codeblocks={codeblocks}
+        // REMOVE IN PROGRESS
+        onRemoveCodeblock={onRemoveCodeblock}
+      />
     </section>
   );
 }
