@@ -5,8 +5,8 @@ export function Loader() {
     return (
         <section className='loader'>
             <ThreeCircles
-                height="100"
-                width="100"
+                height="70"
+                width="70"
                 color="#222222"
                 wrapperStyle={{}}
                 wrapperClass=""
