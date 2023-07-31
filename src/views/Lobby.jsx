@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CodeblockList } from "../components/CodeblockList";
 import { loadCodeblocks } from "../store/actions/codeblock.actions";
+import { Loader } from '../components/Loader'
 
 export function Lobby(props) {
   const codeblocks = useSelector(
@@ -14,7 +15,7 @@ export function Lobby(props) {
     dispatch(loadCodeblocks());
   }, []);
 
-  if (!codeblocks) return <div>Loading Code Blocks...</div>;
+  if (!codeblocks) return  <Loader />
 
   return (
     <section className="codeblock-index">

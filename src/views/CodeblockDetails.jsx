@@ -7,6 +7,7 @@ import { Controlled as CodeMirror } from "react-codemirror2";
 import "codemirror/mode/javascript/javascript";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/dracula.css";
+import { Loader } from "../components/Loader";
 
 import io from "socket.io-client";
 
@@ -80,7 +81,7 @@ export function CodeblockDetails() {
     else if (runClicked && code !== codeblock.solution) setShowSmiley(false);
   }
 
-  if (!codeblock) return <div>Loading Code Block...</div>;
+  if (!codeblock) return <Loader />
 
   const difficultyColor = getDifficultyColor(codeblock.difficulty);
 
