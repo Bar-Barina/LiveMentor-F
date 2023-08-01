@@ -33,7 +33,6 @@ export function CodeblockEdit() {
   async function onSaveCodeblock(ev) {
     ev.preventDefault();
     try {
-      console.log("from edit", codeblock);
       dispatch(save(codeblock));
       navigate(-1);
     } catch (error) {

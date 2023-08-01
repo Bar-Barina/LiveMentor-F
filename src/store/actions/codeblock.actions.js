@@ -34,7 +34,6 @@ export function remove(codeblockId) {
 }
 
 export function save(codeblock) {
-  console.log('from actions',codeblock)
   return async (dispatch) => {
     try {
       const type = codeblock._id ? UPDATE_CODEBLOCK : ADD_CODEBLOCK;
