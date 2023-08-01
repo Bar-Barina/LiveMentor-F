@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CodeblockList } from "../components/CodeblockList";
 import { loadCodeblocks, remove } from "../store/actions/codeblock.actions";
 import { Loader } from "../components/Loader";
+import { CodeblockFilter } from "../components/CodeblockFilter";
 
 export function Lobby(props) {
   const codeblocks = useSelector((storeState) => storeState.codeblocks);
@@ -23,6 +24,7 @@ export function Lobby(props) {
   return (
     <section className="codeblock-index">
       <h1 className="lobby-title">Choose code block</h1>
+      <CodeblockFilter/>
       <CodeblockList
         codeblocks={codeblocks}
         // REMOVE IN PROGRESS

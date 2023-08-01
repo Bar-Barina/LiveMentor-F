@@ -96,7 +96,7 @@ export function CodeblockDetails() {
               <span className="mentor-mode">Mentor Mode</span>
             )}
             {role === "mentor" && (
-              <Link to={`/edit/${codeblock._id}`}>
+              <Link to={`/edit/${codeblock._id}`} className="flex auto-center">Edit details
                 <span
                   dangerouslySetInnerHTML={{
                     __html: getLiveMentorSvg("editIcon"),

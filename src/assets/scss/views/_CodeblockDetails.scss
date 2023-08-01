@@ -125,15 +125,18 @@
     color: white;
   }
   a {
-    padding: 5px;
+    padding: 5px 12px;
     border-radius: 10px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    border: 1px solid lightgray;
+    gap: 5px;
+    align-items: baseline;
+    background-color: $clr6;
     svg {
       fill: rgb(30, 30, 30);
     }
     &:hover {
-      box-shadow: rgba(226, 197, 68, 0.43) 0px 15px 35px;
+      box-shadow: rgba(222, 201, 105, 0.43) 0px 8px 24px;
+      background-color: $clr7;
     }
   }
 }

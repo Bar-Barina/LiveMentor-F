@@ -52,6 +52,7 @@ export function save(codeblock) {
 
 // IN PROGRESS
 export function setFilterBy(filterBy) {
+  console.log('from action',filterBy)
   return (dispatch) => {
     dispatch({ type: SET_FILTER_BY, filterBy });
   };
