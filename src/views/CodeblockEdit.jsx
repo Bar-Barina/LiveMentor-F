@@ -46,6 +46,7 @@ export function CodeblockEdit() {
       <div className="form-wrapper">
         <div className="edit-title">
           <h3>Mentor only</h3>
+          {/* Checking if there is an codeblock id, if yes, its an edit */}
           <h1>{codeblock._id ? "Edit" : "Add"} code block</h1>
         </div>
         <form onSubmit={onSaveCodeblock}>
