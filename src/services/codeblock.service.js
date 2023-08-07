@@ -10,6 +10,7 @@ export const codeblockService = {
   getDifficultyColor,
 };
 
+// FILTER IN PROGRESS
 async function query(filterBy = null) {
   const codeblocks = await httpService.get(`codeblock/`,filterBy);
   return codeblocks;
