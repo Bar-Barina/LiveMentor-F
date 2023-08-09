@@ -11,6 +11,8 @@ import { Loader } from "../components/Loader";
 
 import io from "socket.io-client";
 
+
+// SHOULD MOVE SOCKET LOGIC TO FRONTEND SERVICE!
 export function CodeblockDetails() {
   const [codeblock, setCodeblock] = useState(null);
   const [nextCodeblockId, setNextCodeblockId] = useState(null);
